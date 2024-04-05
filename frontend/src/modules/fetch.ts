@@ -26,6 +26,13 @@ async function fetchPerson(id) {
 	console.log(dataPerson);
 	return dataPerson;
 }
+async function fetchPersonsPosts(id) {
+	const url = `http://localhost:3000/api/users/${id}/posts`;
+	const res = await fetch(url);
+	const dataPerson = await res.json();
+	console.log(dataPerson);
+	return dataPerson;
+}
 
 async function fetchUserData(
 	userId: string,
@@ -89,4 +96,4 @@ async function fetchDeleteUser(userId: string): Promise<void> {
 	}
 }
 
-export { fetchData, fetchUserData, fetchDeleteUser, fetchPerson };
+export { fetchData, fetchUserData, fetchDeleteUser, fetchPerson, fetchPersonsPosts };

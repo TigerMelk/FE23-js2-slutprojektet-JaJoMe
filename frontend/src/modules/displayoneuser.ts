@@ -1,4 +1,5 @@
 import { User, Comment, Post } from "./types.ts";
+import { usersComments } from "./displaycomments.ts";
 
 //display one user thats clicked on i userlist
 async function displayoneuser(nameidInnertext, data) {
@@ -19,6 +20,7 @@ async function displayoneuser(nameidInnertext, data) {
       const nameEl = document.createElement("h2");
 
       imageEl.src = user.image;
+      imageEl.classList.add("imgg")
       nameEl.innerText = user.name;
 
       for (let i = 0; i < 3; i++) {
@@ -45,6 +47,8 @@ async function displayoneuser(nameidInnertext, data) {
       );
       userscommentsBtn.addEventListener("click", (event) => {
         console.log('name in button is: ' + nameidInnertext);
+        usersComments(user.comments)
+
       });
       userposts.addEventListener("click", (event) => {
         for (let i = 0; i < user.posts.length; i++) {
@@ -55,6 +59,7 @@ async function displayoneuser(nameidInnertext, data) {
           const commentsEl = document.createElement("p");
           commentsEl.innerText = user.posts[i].bread;
           userposts.append(commentsEl);
+          console.log('in posts')
         }
       });
       usersDiv.append(userBox);
