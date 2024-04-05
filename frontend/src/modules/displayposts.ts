@@ -1,6 +1,6 @@
 import { displayComments } from "./displaycomments.ts";
 import { addcomment } from "./addcomment.ts";
-import { User} from "./types.ts";
+import { User, Post} from "./types.ts";
 
 
 
@@ -67,7 +67,18 @@ async function displayPosts(data: User[]) {
     }
 }
 }
+//
+async function displayPersonsPosts(posts: Post) {
+  for (const breads of posts){
+    const {bread} = posts
+
+    const postEl = document.createElement("p");
+    postEl.innerText = bread;
+    const postsBox = document.querySelector("#posters") as HTMLDivElement;
+    postsBox.append(postEl)
+
+  }
+}
 
 
-
-export { displayPosts }
+export { displayPosts, displayPersonsPosts }
